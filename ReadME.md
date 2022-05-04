@@ -88,20 +88,3 @@ The graphs below shows that over the course of one year the 30-day retention cyc
 
 <br>
 <br>
-
-## Question 3) Are players who win more, retained more?
-<br>
-
-
-![WinPct](./images/AvgWinPct.png)
-### PROCESS
-This chart was created through several SQL Queries. The first of which found the total amount of wins each player had received by joining `player_info` table with the `matches_info` table, and summing over wins (delegated as a $1$) for each player. Another query was made that found the total amount of games played for each player, using the same two tables, but this time summing over the total amount of matches (independent of whether they were considered a win or loss) for each player - giving us the total amount of games played. These two queries (and resulting tables) were joined (through a subquery) and the `total_wins` was divided by  the `total_games` to gives us the `win_pct` for each player. Finally, this information was joined with our previous player retention tables, to determine whether each player was retained or not. These `win_pct` per player were then averaged over each Retention Status ('Retained' or 'Non-Retained').
-### ANALYSIS
- You would generally be led to believe that players who win more, would be more likely to continue playing the game and be 'retained' vs players who constantly lose and get fed up and quit the game. This chart clearly shows the contrary as both 'Retained' and 'Non-Retained' groups have an average winning percentage of ~50%. This could in part be due to the fact that players who are winning extensively when they first play the game (within 30 days of joining) actually get bored of the game and decide to quit it. This may be balancing the players who lose the game and quit preemptively. The company in question may want to consider 'Skill-Based-Matchmaking' so that newer players are going to be playing newer players as well. This may balancing players and giving more insensitive for players to continue playing, although further analysis would have to be conducted to confirm this idea.
- 
-
-
-
-
-
-
